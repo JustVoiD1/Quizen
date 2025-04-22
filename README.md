@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 📚 Quizen - Quiz Manager
 
-## Getting Started
+A simple full-stack **Quiz Manager** app built using **Next.js 14 App Router**, **MongoDB**, and **TailwindCSS**.  
+Teachers can create quizzes, and students can attempt and submit their answers!
 
-First, run the development server:
+---
+
+## ✨ Features
+
+- Teacher Dashboard:
+  - Create quizzes dynamically.
+  - View submissions.
+- Student Dashboard:
+  - View available quizzes.
+  - Attempt quizzes and submit answers.
+- MongoDB database integration.
+- Modern and clean UI using TailwindCSS.
+
+---
+
+## 🛠️ Tech Stack
+
+- Next.js 14 (App Router)
+- MongoDB (Mongoose ODM)
+- Tail
+
+
+
+---
+
+## 🚀 Getting Started Locally
+
+1. Clone the repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/your-username/quizen-quizmanager.git
+cd quizen-quizmanager
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+2. Install dependencies
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm install
+```
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+3. Create a `.env.local` file in the root directory and add your MongoDB URI:
+```bash
+MONGODB_URI=your-mongo-connection-string
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. Run the development server:
+```bash
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
