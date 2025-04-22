@@ -33,7 +33,7 @@ Teachers can create quizzes, and students can attempt and submit their answers!
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/quizen-quizmanager.git
+git clone https://github.com/JustVoid1/quizen-quizmanager.git
 cd quizen-quizmanager
 ```
 
