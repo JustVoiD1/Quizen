@@ -22,7 +22,7 @@ Teachers can create quizzes, and students can attempt and submit their answers!
 
 - Next.js 14 (App Router)
 - MongoDB (Mongoose ODM)
-- Tail
+- Tailwind css
 
 
 
