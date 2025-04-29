@@ -1,3 +1,6 @@
+import Link from "next/link";
+
+
 export default function Home() {
   return (
     <>
@@ -8,18 +11,18 @@ export default function Home() {
             Start by creating a quiz as a teacher or take a quiz as a student!
           </p>
           <div className="space-y-4">
-            <a
+            <Link
               href="/teacher/"
               className="block w-full py-3 px-6 text-center bg-blue-500 text-white rounded-lg text-lg font-semibold transition duration-300 ease-in-out hover:bg-blue-600 hover:shadow-lg"
             >
               Teacher Dashboard
-            </a>
-            <a
+            </Link>
+            <Link
               href="/student/"
               className="block w-full py-3 px-6 text-center bg-green-500 text-white rounded-lg text-lg font-semibold transition duration-300 ease-in-out hover:bg-green-600 hover:shadow-lg"
             >
               Student Dashboard
-            </a>
+            </Link>
           </div>
         </div>
       </div>
