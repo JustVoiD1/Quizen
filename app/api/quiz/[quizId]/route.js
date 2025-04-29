@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server';
 
 export async function GET(req, context) {
   await connectMongo();
-  const { quizId } = context.params;  // ✅ Correct
+  const { quizId } = await context.params;
 
   try {
     const quiz = await Quiz.findById(quizId);

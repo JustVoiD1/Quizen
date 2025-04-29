@@ -21,19 +21,25 @@ export default function StudentDashboard() {
   }, []);
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-6">Available Quizzes</h1>
+    <div className="min-h-screen bg-gradient-to-r from-blue-100 to-green-100 flex items-center justify-center p-6">
+      <div className="bg-white p-8 rounded-lg shadow-lg max-w-3xl w-full">
+        <h1 className="text-3xl font-bold mb-6 text-center text-gray-900">Available Quizzes</h1>
 
-      <div className="space-y-4">
-        {quizzes.map((quiz) => (
-          <Link
-            key={quiz._id}
-            href={`/student/${quiz._id}`}
-            className="block p-4 border rounded shadow hover:bg-gray-100 transition"
-          >
-            <h2 className="text-xl font-semibold">{quiz.title}</h2>
-          </Link>
-        ))}
+        {quizzes.length === 0 ? (
+          <p className="text-center text-gray-700 text-lg">No quizzes available.</p>
+        ) : (
+          <div className="space-y-4">
+            {quizzes.map((quiz) => (
+              <Link
+                key={quiz._id}
+                href={`/student/${quiz._id}`}
+                className="block p-5 rounded-lg border border-gray-200 bg-gray-50 hover:bg-gray-100 transition-shadow hover:shadow-md"
+              >
+                <h2 className="text-xl font-semibold text-gray-800">{quiz.title}</h2>
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
