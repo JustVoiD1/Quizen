@@ -42,6 +42,10 @@ export default function StudentQuizPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const confirmSubmission = window.confirm("Are you sure you want to submit your answers?")
+    if(!confirmSubmission) return;
+    
     try {
       await axios.post('/api/submission/create', {
         quizId,
@@ -98,6 +102,7 @@ export default function StudentQuizPage() {
 
           <button
             type="submit"
+            onSubmit={handleSubmit}
             className="w-full py-3 bg-green-500 text-white rounded-lg text-lg font-semibold transition duration-300 hover:bg-green-600 hover:shadow-md"
           >
             Submit Answers

@@ -6,6 +6,7 @@ import Link from 'next/link';
 
 export default function StudentDashboard() {
   const [quizzes, setQuizzes] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchQuizzes = async () => {
@@ -14,6 +15,9 @@ export default function StudentDashboard() {
         setQuizzes(res.data.quizzes);
       } catch (err) {
         console.error(err);
+      }
+      finally{
+        setIsLoading(false)
       }
     };
 
@@ -24,8 +28,9 @@ export default function StudentDashboard() {
     <div className="min-h-screen bg-gradient-to-r from-blue-100 to-green-100 flex items-center justify-center p-6">
       <div className="bg-white p-8 rounded-lg shadow-lg max-w-3xl w-full">
         <h1 className="text-3xl font-bold mb-6 text-center text-gray-900">Available Quizzes</h1>
-
-        {quizzes.length === 0 ? (
+        {isLoading ? (<p className='text-center text-gray-700 text-lg'>
+          Loading Quizzes
+        </p> ) : quizzes.length === 0 ? (
           <p className="text-center text-gray-700 text-lg">No quizzes available.</p>
         ) : (
           <div className="space-y-4">
@@ -40,6 +45,7 @@ export default function StudentDashboard() {
             ))}
           </div>
         )}
+
       </div>
     </div>
   );
