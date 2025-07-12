@@ -16,9 +16,20 @@ export async function POST(req) {
 
     await newQuiz.save();
 
-    return NextResponse.json({ success: true, message: 'Quiz Created' });
+    return NextResponse.json({
+      success: true,
+      message: 'Quiz Created'
+    });
+
   } catch (error) {
     console.error('Error creating quiz:', error);
-    return NextResponse.json({ success: false, message: 'Something went wrong!' }, { status: 500 });
+    
+    return NextResponse.json({
+      success: false,
+      message: 'Something went wrong!'
+    },
+      {
+        status: 500
+      });
   }
 }

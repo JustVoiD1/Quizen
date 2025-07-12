@@ -2,8 +2,10 @@
 
 import { useState } from 'react';
 import axios from 'axios';
+import { useRouter } from 'next/navigation';
 
 export default function CreateQuizPage() {
+  const router = useRouter();
   const [title, setTitle] = useState('');
   const [questions, setQuestions] = useState([
     { text: '', options: ['', '', '', ''], correctAnswer: 0 }
@@ -28,13 +30,21 @@ export default function CreateQuizPage() {
     ]);
   };
 
+  const removeQuestion = (index) => {
+    if (questions.length > 1) {
+      const updated = questions.filter((_, idx) => idx !== index);
+      setQuestions(updated);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const res = await axios.post('/api/quiz/create', { title, questions });
       alert('Quiz Created Successfully!');
-      setTitle('');
-      setQuestions([{ text: '', options: ['', '', '', ''], correctAnswer: 0 }]);
+      
+      // Redirect to teacher dashboard
+      router.push('/teacher');
     } catch (err) {
       console.error(err);
       alert('Something went wrong!');
@@ -58,7 +68,18 @@ export default function CreateQuizPage() {
 
           {questions.map((q, idx) => (
             <div key={idx} className="border border-gray-200 rounded-lg p-5 shadow-sm bg-gray-50 space-y-4">
-              <label className="block text-lg font-semibold text-gray-700">Question {idx + 1}</label>
+              <div className="flex justify-between items-center">
+                <label className="block text-lg font-semibold text-gray-700">Question {idx + 1}</label>
+                {questions.length > 1 && (
+                  <button
+                    type="button"
+                    onClick={() => removeQuestion(idx)}
+                    className="px-3 py-1 bg-red-500 text-white rounded-md hover:bg-red-600 text-sm shadow-sm"
+                  >
+                    Remove
+                  </button>
+                )}
+              </div>
               <input
                 type="text"
                 placeholder="Question Text"

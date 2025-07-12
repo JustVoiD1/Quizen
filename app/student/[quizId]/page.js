@@ -3,12 +3,16 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import axios from 'axios';
+import { useRouter } from 'next/navigation';
+
+
 
 export default function StudentQuizPage() {
   const { quizId } = useParams();
   const [quiz, setQuiz] = useState(null);
   const [answers, setAnswers] = useState([]);
   const [studentName, setStudentName] = useState('');
+  const router = useRouter();
 
   useEffect(() => {
     const fetchQuiz = async () => {
@@ -53,6 +57,8 @@ export default function StudentQuizPage() {
         answers,
       });
       alert('Answers submitted successfully!');
+      router.push("/student");
+
     } catch (err) {
       console.error(err);
       alert('Failed to submit answers.');
