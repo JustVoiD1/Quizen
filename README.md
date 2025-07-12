@@ -1,4 +1,6 @@
 # 📚 Quizen - Quiz Manager
+New ShadCN version
+https://quizen-quiz-man.vercel.app
 
 A simple full-stack **Quiz Manager** app built using **Next.js 14 App Router**, **MongoDB**, and **TailwindCSS**.  
 Teachers can create quizzes, and students can attempt and submit their answers!
